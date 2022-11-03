@@ -1,10 +1,13 @@
 function dataType(){
+  console.log(' ');
   let dataUndefined;
   let dataNull = null;
   let sym = Symbol();
   let dataArray = [1, '1', true, dataUndefined, dataNull, {'company': 'wmakers'}, sym, 1n];
   console.log(dataArray);
   dataArray.forEach((e) => { console.log(typeof(e));})
+  console.log(' ');
+  console.log('-------------------------------------');
 }
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
