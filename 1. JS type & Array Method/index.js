@@ -38,7 +38,7 @@ function unshift(){
   console.log(' ');
   console.log(arr);
   arr.unshift(0);
-  console.log('arr.push(0)');
+  console.log('arr.unshift(0)');
   console.log(arr);
   console.log(' ');
   console.log('-------------------------------------');
