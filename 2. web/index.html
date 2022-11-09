@@ -61,51 +61,6 @@
           이런식으로 보통 브라우저가 하나의 페이지를 그릴 때는 첫 리스폰스의 내용 안에서 또다시 요구되는 여러가지 다른 것들을 구하기 위해 다시 여러개의 리퀘스트를 보내는 것이 일반적이다. <br/>게다가 그렇게 또 받은 리스폰스의 내용에 따라 또 새로운 리퀘스트를 보내야 할 수도 있다. <br/>바로 이런 원리 때문에 우리가 어떤 웹페이지를 딱 한번 접속했다고 해도 그 사이에는 수많은 리퀘스트와 리스폰스가 발생하는 것이다.</p>
       </div>
 
-      <div class="mb-5 mt-10">
-        <h1 class="text-2xl font-extrabold my-3">HTTP 상태 코드 정리</h1>
-        <p>와탭에서 제공하는 URL Monitoring은 웹서비스의 장애를 알려주는 서비스입니다. 웹서비스에서 반환되는 상태 코드가 4xx, 5xx로 나타나는 경우, 경고 알람을 보내도록 되어 있습니다. 웹서비스에서 반환되는 상태 코드는 HTTP STATUS CODE라고 불리우며, 대표적인 상태 코드로는 "404 Not Found"가 있습니다.</p>
-        <div class="my-10">
-          <p>- <strong>1xx(정보)</strong> : 요청을 받았으며 프로세스를 계속 진행합니다.</p>
-          <p>- <strong>2xx(성공)</strong> : 요청을 성공적으로 받았으며 인식했고 수용하였습니다.</p>
-          <p>- <strong>3xx(리다이렉션)</strong> : 요청 완료를 위해 추가 작업 조치가 필요합니다.</p>
-          <p>- <strong>4xx(클라이언트 오류)</strong> : 요청의 문법이 잘못되었거나 요청을 처리할 수 없습니다.</p>
-          <p>- <strong>5xx(서버 오류)</strong> : 서버가 명백히 유요한 요청에 대한 충족을 실패했습니다.</p>
-        </div>
-        <h2 class="text-lg font-bold">1XX : Information responses</h2>
-        <ol class="p-5 border-2 border-slate-200 mt-2">
-          <li>
-            <strong>- 100 Continue</strong>
-            <p>진행 중임을 의미하는 응답코드입니다. 현재까지의 진행상태에 문제가 없으며, 클라이언트가 계속해서 요청을 하거나 이미 요청을 완료한 경우에는 무시해도 되는 것을 알려줍니다.</p>
-          </li>
-          <li class="my-5">
-            <strong>- 101 Switching Protocol</strong>
-            <p class="mb-2">101은 클라이언트에 의해 보낸 업그레이드 요청 헤더에 대한 응답으로 보내집니다.</p>
-            <p>이 응답 코드는 클라이언트가 보낸 Upgrade 요청 헤더에 대한 응답에 들어가며, 서버에서 프로토콜을 변경할 것임을 알려줍니다. 해당 코드는 Websocket 프로토콜 전환 시에 사용됩니다.</p>
-          </li>
-          <li>
-            <strong>- 102 Processing(WebDAV)</strong>
-            <p>이 응답 코드는 서버가 요청을 수신하였으며 이를 처리하고 있지만, 아직 제대로 된 응답을 알려줄 수 없음을 알려줍니다.</p>
-          </li>
-        </ol>
-        <h2 class="text-lg font-bold mt-10">2XX : Information responses</h2>
-        <ol class="p-5 border-2 border-slate-200 mt-2">
-          <li>
-            <strong>- 200 Ok</strong>
-            <p>요청이 성공적으로 되었습니다. 정보는 요청에 따른 응답으로 반환됩니다.</p>
-          </li>
-          <li class="my-5">
-            <strong>- 201 Created</strong>
-            <p class="mb-2">요청이 성공적이었으며 그 결과로 새로운 리소스가 생성되었습니다. 이 응답은 일반적으로 POST 요청 또는 일부 PUT 요청 이후에 따라옵니다.</p>
-          </li>
-          <li>
-            <strong>- 202 Accepted</strong>
-            <p>요청을 수신하였지만, 그에 응하여 행동할 수 없습니다. 이 응답은 요청 처리에 대한 결과를 이후에 HTTP로 비동기 응답을 보내는 것에 대해서 명확하게 명시하지 않습니다. 이것은 다른 프로세스에서 처리 또는 서버가 요청을 다루고 있거나 배치 프로세스를 하고 있는 경우를 위해 만들어졌습니다.</p>
-          </li>
-        </ol>
-      </div>
-      
-      
-       
       
        
 

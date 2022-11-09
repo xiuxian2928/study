@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="container mx-auto">
+      <div class="mb-5 mt-10">
+        <h1 class="text-2xl font-extrabold my-3">1. REST API의 탄생</h1>
+        <p>REST는 Representational State Transfer 라는 용어의 약자로서 2000년도에 로이 필딩의 박사학위 논문에서 최초로 소개되었습니다. 로이 필딩은 HTTP의 주요 저자 중 한 사람으로 그 당시 웹 설계의 우수성에 비해 제대로 사용되어지지 못하는 모습에 안타까워하며 웹의 장점을 최대한 활용할 수 있는 아키텍처로서 REST를 발표했다고 합니다.</p>
+        </div>
+      <div class="mb-5 mt-10">
+        <h1 class="text-2xl font-extrabold my-3">2. REST 구성</h1>
+        <p>쉽게 말해 REST API는 다음의 구성으로 이루어져있습니다.</p>
+        <ol class="my-3 list-disc pl-10">
+          <li><strong>자원(RESOURCE)</strong> - URI</li>
+          <li><strong>행위(Verb)</strong> - HTTP METHOD</li>
+          <li><strong>표현(Representations)</strong></li>
+        </ol>
+      </div>
+      <div class="mb-5 mt-10">
+        <h1 class="text-2xl font-extrabold my-3">3. REST 특징</h1>
+        <p>쉽게 말해 REST API는 다음의 구성으로 이루어져있습니다.</p>
+        <ol class="my-3 pl-10">
+          <li class="py-3">1) Uniform (유니폼 인터페이스)
+            <p>Uniform Interface는 URI로 지정한 리소스에 대한 조작을 통일되고 한정적인 인터페이스로 수행하는 아키텍처 스타일을 말합니다.</p>
+          </li>
+          <li class="py-3">2) Stateless (무상태성)
+            <p>REST는 무상태성 성격을 갖습니다. 다시 말해 작업을 위한 상태정보를 따로 저장하고 관리하지 않습니다. 세션 정보나 쿠키정보를 별도로 저장하고 관리하지 않기 때문에 API 서버는 들어오는 요청만을 단순히 처리하면 됩니다. 때문에 서비스의 자유도가 높아지고 서버에서 불필요한 정보를 관리하지 않음으로써 구현이 단순해집니다.</p>
+          </li>
+          <li class="py-3">3) Cacheable (캐시 가능)
+            <p>REST의 가장 큰 특징 중 하나는 HTTP라는 기존 웹표준을 그대로 사용하기 때문에, 웹에서 사용하는 기존 인프라를 그대로 활용이 가능합니다. 따라서 HTTP가 가진 캐싱 기능이 적용 가능합니다. HTTP 프로토콜 표준에서 사용하는 Last-Modified태그나 E-Tag를 이용하면 캐싱 구현이 가능합니다.</p>
+          </li>
+          <li class="py-3">4) Self-descriptiveness (자체 표현 구조)
+            <p>REST의 또 다른 큰 특징 중 하나는 REST API 메시지만 보고도 이를 쉽게 이해 할 수 있는 자체 표현 구조로 되어 있다는 것입니다.</p>
+          </li>
+          <li class="py-3">5) Client - Server 구조
+            <p>REST 서버는 API 제공, 클라이언트는 사용자 인증이나 컨텍스트(세션, 로그인 정보) 등을 직접 관리하는 구조로 각각의 역할이 확실히 구분되기 때문에 클라이언트와 서버에서 개발해야 할 내용이 명확해지고 서로간 의존성이 줄어들게 됩니다.</p>
+          </li>
+          <li class="py-3">6) 계층형 구조
+            <p>REST 서버는 다중 계층으로 구성될 수 있으며 보안, 로드 밸런싱, 암호화 계층을 추가해 구조상의 유연성을 둘 수 있고 PROXY, 게이트웨이 같은 네트워크 기반의 중간매체를 사용할 수 있게 합니다.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="mb-5 mt-10">
+        <h1 class="text-2xl font-extrabold my-3">4. REST API 디자인 가이드</h1>
+        <p>REST API 설계 시 가장 중요한 항목은 다음의 2가지로 요약할 수 있습니다.</p>
+        <p class="mt-3"><strong>첫 번째,</strong> URI는 정보의 자원을 표현해야 한다.</p>
+        <p class="mb-3"><strong>두 번째,</strong> 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.</p>
+        <h2 class="text-xl font-extrabold mt-10">4-1. REST API 중심 규칙</h2>
+        <ol class="my-3 pl-5">
+          <li class="py-3">1) URI는 정보의 자원을 표현해야 한다. (리소스명은 동사보다는 명사를 사용)
+            <p class="bg-[#eee] px-10 py-5 my-3">GET /members/delete/1</p>
+            <p>위와 같은 방식은 REST를 제대로 적용하지 않은 URI입니다. URI는 자원을 표현하는데 중점을 두어야 합니다. delete와 같은 행위에 대한 표현이 들어가서는 안됩니다.</p>
+          </li>
+          <li class="py-3">2) 자원에 대한 행위는 HTTP Method(GET, POST, PUT DELETE 등)로 표현
+            <p>위의 잘못 된 URI를 HTTP Method를 통해 수정해보면</p>
+            <p class="bg-[#eee] px-10 py-5 my-3">DELETE /members/1</p>
+            <p>으로 수정할 수 있습니다.</p>
+            <P>회원정보를 가져올 때는 GET, 회원 추가 시의 행위를 표현하고자할 때는 POST Method를 사용하여 표현합니다.</P>
+            <div class="my-2">
+              <p class="font-extrabold">회원정보를 가져오는 URI</p>
+              <p class="bg-[#eee] px-10 py-5 my-3"><span class="inline-block w-[250px]">GET /members/show/1</span>(x)<br/><span class="inline-block w-[250px]">GET /members/1</span>(o)</p>
+            </div>
+            <div class="my-2">
+              <p class="font-extrabold">회원정보를 추가할 때</p>
+              <p class="bg-[#eee] px-10 py-5 my-3"><span class="inline-block w-[250px]">GET /members/insert/2</span>(x) - GET 메서드는 리소스 생성에 맞지 않다<br/><span class="inline-block w-[250px]">POST /members/2</span>(o)</p>
+            </div>
+            <div class="my-2">
+              <p class="font-extrabold">[참고] HTTP METHOD의 알맞은 역할</p>
+              <p>POST, GET, PUT, DELETE 이 4가지의 Method를 가지고 CRUD를 할 수 있습니다.</p>
+              <table class="w-full my-5 table-auto">
+                <thead>
+                  <tr>
+                    <th class="bg-[#d0d0d0] text-white text-center p-3 border">METHOD</th>
+                    <th class="bg-[#d0d0d0] text-white text-center p-3 border">역할</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="px-5 py-3 border">POST</td>
+                    <td class="px-5 py-3 border">POST를 통해 해당 URI를 요청하면 리소스를 생성</td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-3 border">GET</td>
+                    <td class="px-5 py-3 border">GET을 통해 해당 리소스를 조회합니다. 리소스를 조회하고 해당 도큐먼트에 대한 자세한 정보를 가져온다.</td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-3 border">PUT</td>
+                    <td class="px-5 py-3 border">PUT을 통해 해당 리소스를 수정합니다.</td>
+                  </tr>
+                  <tr>
+                    <td class="px-5 py-3 border">DELETE</td>
+                    <td class="px-5 py-3 border">DELETE를 통해 리소스를 삭제합니다.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>다음과 같은 식으로 URI는 자원을 표현하는 데에 집중하고 행위에 대한 정의는 HTTP METHOD를 통해 하는 것이 REST한 API를 설계하는 중심 규칙이다.</p>
+            </div>
+          </li>
+        </ol>
+        <h2 class="text-xl font-extrabold mt-10">4-2. URI 설계 시 주의할 점</h2>
+        <ol class="my-3 pl-5">
+          <li class="py-3">1) 슬래시 구분자(/)는 계층 관계를 나타내는 데 사용
+            <p class="bg-[#eee] px-10 py-5 my-3">http://restapi.example.com/houses/apartments<br/>http://restapi.example.com/animals/mammals/whales</p>
+          </li>
+          <li class="py-3">2) URI 마지막 문자로 슬래시(/)를 포함하지 않는다.
+            <p>URI에 포함되는 모든 글자는 리소스의 유일한 식별자로 사용되어야 하며 URI가 다르다는 것은 리소스가 다르다는 것이고, 역으로 리소스가 다르면 URI도 달라져야 한다. REST API는 분명한 URI를 만들어 통신을 해야 하기 때문에 혼동을 주지 않도록 URI 경로의 마지막에는 슬래시(/)를 사용하지 않는다</p>
+            <p class="bg-[#eee] px-10 py-5 my-3"><span class="inline-block w-[400px]">http://restapi.example.com/houses/apartments/</span>(x)<br/><span class="inline-block w-[400px]">http://restapi.example.com/houses/apartments</span>(o)</p>
+          </li>
+          <li class="py-3">3) 하이픈(-)은 URI 가독성을 높이는데 사용
+            <p>URI를 쉽게 읽고 해석하기 위해, 불가피하게 긴 URI경로를 사용하게 된다면 하이픈을 사용해 가독성을 높일 수 있음</p>
+          </li>
+          <li class="py-3">4) 밑줄(_)은 URI에 사용하지 않는다.
+            <p>글꼴에 따라 다르긴 하지만 밑줄은 보기 어렵거나 밑줄 때문에 문자가 가려지기도 합니다. 이런 문제를 피하기 위해 밑줄 대신 하이픈(-)을 사용하는 것이 좋습니다.(가독성)</p>
+          </li>
+          <li class="py-3">5) URI 경로에는 소문자가 적합하다.
+            <p>URI 경로에 대문자 사용은 피하도록 해야 합니다. 대소문자에 따라 다른 리소스로 인식하게 되기 때문입니다. RFC 3986(URI 문법 형식)은 URI 스키마와 호스트를 제외하고는 대소문자를 구별하도록 규정하기 때문이지요.</p>
+            <p class="bg-[#eee] px-10 py-5 my-3">RFC 3986 is the URI (Unified Resource Identifier) Syntax document</p>
+          </li>
+          <li class="py-3">6) 파일 확장자는 URI에 포함시키지 않는다.
+            <p class="bg-[#eee] px-10 py-5 my-3">http://restapi.example.com/members/soccer/345/photo.jpg (X)</p>
+            <p>REST API에서는 메시지 바디 내용의 포맷을 나타내기 위한 파일 확장자를 URI 안에 포함시키지 않습니다. Accept header를 사용하도록 합시다.</p>
+            <p class="bg-[#eee] px-10 py-5 my-3">GET / members/soccer/345/photo HTTP/1.1 Host: restapi.example.com Accept: image/jpg</p>
+          </li>
+        </ol>
+        <h2 class="text-xl font-extrabold mt-10">4-3. 리소스 간의 관계를 표현하는 방법</h2>
+        <ol class="my-3 pl-5">
+          <p>REST 리소스 간에는 연관 관계가 있을 수 있고, 이런 경우 다음과 같은 표현방법으로 사용합니다.</p>
+          <p class="bg-[#eee] px-10 py-5 my-3">/리소스명/리소스 ID/관계가 있는 다른 리소스명<br/><span class="inline-block w-[100px]">ex)</span>GET : /users/{userid}/devices (일반적으로 소유 ‘has’의 관계를 표현할 때)</p>
+          <p>만약에 관계명이 복잡하다면 이를 서브 리소스에 명시적으로 표현하는 방법이 있습니다. 예를 들어 사용자가 ‘좋아하는’ 디바이스 목록을 표현해야 할 경우 다음과 같은 형태로 사용될 수 있습니다.</p>
+          <p class="bg-[#eee] px-10 py-5 my-3">GET : /users/{userid}/likes/devices (관계명이 애매하거나 구체적 표현이 필요할 때)</p>
+        </ol>
+        <h2 class="text-xl font-extrabold mt-10">4-4. 자원을 표현하는 Colllection과 Document</h2>
+        <ol class="my-3 pl-5">
+          <p>Collection과 Document에 대해 알면 URI 설계가 한 층 더 쉬워집니다. DOCUMENT는 단순히 문서로 이해해도 되고, 한 객체라고 이해하셔도 될 것 같습니다. 컬렉션은 문서들의 집합, 객체들의 집합이라고 생각하시면 이해하시는데 좀더 편하실 것 같습니다. 컬렉션과 도큐먼트는 모두 리소스라고 표현할 수 있으며 URI에 표현됩니다. 예를 살펴보도록 하겠습니다.</p>
+          <p class="bg-[#eee] px-10 py-5 my-3">http:// restapi.example.com/sports/soccer</p>
+          <p>위 URI를 보시면 sports라는 컬렉션과 soccer라는 도큐먼트로 표현되고 있다고 생각하면 됩니다. 좀 더 예를 들어보자면</p>
+          <p class="bg-[#eee] px-10 py-5 my-3">http:// restapi.example.com/sports/soccer/players/13</p>
+          <p>sports, players 컬렉션과 soccer, 13(13번인 선수)를 의미하는 도큐먼트로 URI가 이루어지게 됩니다. 여기서 중요한 점은 <strong class="font-extrabold">컬렉션은 복수</strong>로 사용하고 있다는 점입니다. 좀 더 직관적인 REST API를 위해서는 컬렉션과 도큐먼트를 사용할 때 단수 복수도 지켜준다면 좀 더 이해하기 쉬운 URI를 설계할 수 있습니다.</p>
+        </ol>
+      </div>
+
+      <div class="mb-5 mt-10">
+        <h1 class="text-2xl font-extrabold my-3">HTTP 상태 코드 정리</h1>
+        <p>와탭에서 제공하는 URL Monitoring은 웹서비스의 장애를 알려주는 서비스입니다. 웹서비스에서 반환되는 상태 코드가 4xx, 5xx로 나타나는 경우, 경고 알람을 보내도록 되어 있습니다. 웹서비스에서 반환되는 상태 코드는 HTTP STATUS CODE라고 불리우며, 대표적인 상태 코드로는 "404 Not Found"가 있습니다.</p>
+        <div class="my-10">
+          <p>- <strong>1xx(정보)</strong> : 요청을 받았으며 프로세스를 계속 진행합니다.</p>
+          <p>- <strong>2xx(성공)</strong> : 요청을 성공적으로 받았으며 인식했고 수용하였습니다.</p>
+          <p>- <strong>3xx(리다이렉션)</strong> : 요청 완료를 위해 추가 작업 조치가 필요합니다.</p>
+          <p>- <strong>4xx(클라이언트 오류)</strong> : 요청의 문법이 잘못되었거나 요청을 처리할 수 없습니다.</p>
+          <p>- <strong>5xx(서버 오류)</strong> : 서버가 명백히 유요한 요청에 대한 충족을 실패했습니다.</p>
+        </div>
+        <h2 class="text-lg font-bold">1XX : Information responses</h2>
+        <ol class="p-5 border-2 border-slate-200 mt-2">
+          <li>
+            <strong>- 100 Continue</strong>
+            <p>진행 중임을 의미하는 응답코드입니다. 현재까지의 진행상태에 문제가 없으며, 클라이언트가 계속해서 요청을 하거나 이미 요청을 완료한 경우에는 무시해도 되는 것을 알려줍니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 101 Switching Protocol</strong>
+            <p class="mb-2">101은 클라이언트에 의해 보낸 업그레이드 요청 헤더에 대한 응답으로 보내집니다.</p>
+            <p>이 응답 코드는 클라이언트가 보낸 Upgrade 요청 헤더에 대한 응답에 들어가며, 서버에서 프로토콜을 변경할 것임을 알려줍니다. 해당 코드는 Websocket 프로토콜 전환 시에 사용됩니다.</p>
+          </li>
+          <li>
+            <strong>- 102 Processing(WebDAV)</strong>
+            <p>이 응답 코드는 서버가 요청을 수신하였으며 이를 처리하고 있지만, 아직 제대로 된 응답을 알려줄 수 없음을 알려줍니다.</p>
+          </li>
+        </ol>
+        <h2 class="text-lg font-bold mt-10">2XX : Information responses</h2>
+        <ol class="p-5 border-2 border-slate-200 mt-2">
+          <li>
+            <strong>- 200 Ok</strong>
+            <p>요청이 성공적으로 되었습니다. 정보는 요청에 따른 응답으로 반환됩니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 201 Created</strong>
+            <p class="mb-2">요청이 성공적이었으며 그 결과로 새로운 리소스가 생성되었습니다. 이 응답은 일반적으로 POST 요청 또는 일부 PUT 요청 이후에 따라옵니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 202 Accepted</strong>
+            <p>요청을 수신하였지만, 그에 응하여 행동할 수 없습니다. 이 응답은 요청 처리에 대한 결과를 이후에 HTTP로 비동기 응답을 보내는 것에 대해서 명확하게 명시하지 않습니다. 이것은 다른 프로세스에서 처리 또는 서버가 요청을 다루고 있거나 배치 프로세스를 하고 있는 경우를 위해 만들어졌습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 203 Non-Authoritative Information</strong>
+            <p>이 응답 코드는 돌려받은 메타 정보 세트가 오리진 서버의 것과 일치하지 않지만 로컬이나 서드 파티 복사본에서 모아졌음을 의미합니다. 이러한 조건에서는 이 응답이 아니라 200 OK 응답을 반드시 우선됩니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 204 No Content</strong>
+            <p>요청에 대해서 보내줄 수 있는 콘텐츠가 없지만, 헤더는 의미있을 수 있습니다. 사용자-에이전트는 리소스가 캐시된 헤더를 새로운 것으로 업데이트 할 수 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 205 Reset Content</strong>
+            <p>이 응답 코드는 요청을 완수한 이후에 사용자 에이전트에게 이 요청을 보낸 문서 뷰를 리셋하라고 알려줍니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 206 Partial Content</strong>
+            <p>이 응답 코드는 클라이언트에서 복수의 스트림을 분할 다운로드를 하고자 범위 헤더를 전송했기 때문에 사용됩니다. 클라이언트가 이어받기를 시도하면 웹서버가 이에 대한 응답코드로 '206 Partial Content'와 함께 Range 헤더에 명시된 데이터의 부분(byte)부터 전송을 시작합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 207 Multi-Status</strong>
+            <p>멀티-상태 응답은 여러 리소스가 여러 상태 코드인 상황이 적절한 경우에 해당되는 정보를 전달합니다. 해당 코드는 WebDAV(Web Distributed Authoring and Vesioning)에 사용됩니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 208 Already Reported</strong>
+            <p>Prostat(property와 status의 합성어) 응답 속성으로 동일 컬렉션으로 바인드된 복수의 내부 멤버를 반복적으로 열거하는 것을 피하기 위해 사용됩니다. 해당 코드는 WebDAV(Web Distributed Authoring and Vesioning)에 사용됩니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 226 IM Used ( HTTP Delta encoding )</strong>
+            <p>서버가 GET 요청에 대한 리소스의 의무를 다 했고, 그리고 응답이 하나 또는 그 이상의 인스턴스 조작이 현재 인스턴스에 적용이 되었음을 알려줍니다.</p>
+          </li>
+        </ol>
+        <h2 class="text-lg font-bold mt-10">3XX : Redirection messages</h2>
+        <ol class="p-5 border-2 border-slate-200 mt-2">
+          <li>
+            <strong>- 300 Multiple Choice</strong>
+            <p>요청에 대해서 하나 이상의 응답이 가능합니다. 사용자 에언트 또는 사용자는 그중에 하나를 반드시 선택해야 합니다. 응답 중 하나를 선택하는 방법에 대한 표준화 된 방법은 존재하지 않습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 301 Moved Permanently</strong>
+            <p class="mb-2">이 응답 코드는 요청한 리소스의 URI가 변경되었음을 의미합니다. 새로운 URI가 응답에서 아마도 주어질 수 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 302 Found</strong>
+            <p>이 응답 코드는 요청한 리소스의 URI가 일시적으로 변경되었음을 의미합니다. 새롭게 변경된 URI는 나중에 만들어질 수 있습니다. 그러므로, 클라이언트는 향후의 요청도 반드시 동일한 URI로 해야합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 303 See Other</strong>
+            <p>클라이언트가 요청한 리소스를 다른 URI에서 GET 요청을 통해 얻어야 할 때, 서버가 클라이언트로 직접 보내는 응답입니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 304 Not Modified</strong>
+            <p>이것은 캐시를 목적으로 사용됩니다. 이것은 클라이언트에게 응답이 수정되지 않았음을 알려주며, 그러므로 클라이언트는 계속해서 응답의 캐시된 버전을 사용할 수 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 305 Use Proxy</strong>
+            <p>이전 버전의 HTTP 기술 사양에서 정의되었으며, 요청한 응답은 반드시 프록시를 통해서 접속해야 하는 것을 알려줍니다. 이것은 프록시의 in-band설정에 대한 보안상의 걱정으로 인하여 사라져가고 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 306 Unused</strong>
+            <p>이 응답 코드는 더이상 사용되지 않으며, 현재는 추후 사용을 위해 예약되어 있습니다. 이것은 HTTP 1.1 기술사양 이전 버전에서 사용되었습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 307 Temporary Redirect</strong>
+            <p>클라이언트가 요청한 리소스가 다른 URI에 있으며, 이전 요청과 동일한 메소드를 사용하여 요청해야 할 때, 서버가 클라이언트에 이 응답을 직접 보냅니다. 이것은 302 Found HTTP 응답 코드와 동일한 의미를 가지고 있으며, 사용자 에이전트가 반드시 사용된 HTTP 메소드를 변경하지 말아야 하는 점만 다릅니다. 만약 첫 요청에 POST가 사용되었다면, 두번째 요청도 반드시 POST를 사용해야 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 308 Permanent Redirect</strong>
+            <p>이것은 리소스가 이제 HTTP 응답 헤더의 Location:에 명시된 영구히 다른 URI에 위치하고 있음을 의미합니다. 이것은 301 Moved Permanently HTTP 응답 코드와 동일한 의미를 가지고 있으며, 사용자 에이전트가 반드시 HTTP 메소드를 변경하지 말아야 하는 점만 다릅니다. 만약 첫 요청에 POST가 사용되었다면, 두번째 요청도 반드시 POST를 사용해야 합니다.</p>
+          </li>
+        </ol>
+        <h2 class="text-lg font-bold mt-10">4XX : Client error responses</h2>
+        <ol class="p-5 border-2 border-slate-200 mt-2">
+          <li>
+            <strong>- 400 Bad Request</strong>
+            <p>이 응답은 잘못된 문법으로 인하여 서버가 요청하여 이해할 수 없음을 의미합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 401 Unauthorized</strong>
+            <p class="mb-2">비록 HTTP 표준에서는 '미승인(unauthorized)'를 명확히 하고 있지만, 의미상 이 응답은 '비인증(unauthenticated)'를 의미합니다. 클라이언트는 요청한 응답을 받기 위해서는 반드시 스스로를 인증해야 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 402 Payment Required</strong>
+            <p>이 응답 코드는 나중에 사용될 것을 대비해 예약되었습니다. 첫 목표로는 디지털 결제 시스템에 사용하기 위하여 만들어졌지만 지금 사용되고 있지는 않습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 403 Forbidden</strong>
+            <p>클라이언트는 콘텐츠에 접근할 권리를 가지고 있지 않습니다. 예를 들어, 그들은 미승인이어서 서버는 거절을 위한 적절한 응답을 보냅니다. 401과 다른 점은 서버가 클라이언트가 누구인지 알고 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 404 Not Found</strong>
+            <p>서버는 요청받은 리소스를 찾을 수 없습니다. 브라우저에서는 알려지지 않은 URL을 의미합니다. 이것은 API에서 종점은 적절하지만 리소스 자체는 존재하지 않음을 의미할 수 있습니다. 서버들은 인증받지 않은 클라이언트로부터 리소스를 숨기기 위하여 이 응답을 403 대신에 전송할 수도 있습니다. 이 응답 코드는 웹에서 반복적으로 발생하기 때문에 가장 유명할지도 모릅니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 405 Method Not Allowed</strong>
+            <p>요청한 메소드는 서버에서 알고 있지만, 제거되었고 사용할 수 없습니다. 예를 들어, 어떤 API에서 리소스를 삭제하는 것을 금지할 수 있습니다. 필수적인 메소드인 GET과 HEAD는 제거될 수 없으며, 이 에러 코드를 리턴할 수 없습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 406 Not Acceptable</strong>
+            <p>이 응답은 서버가 서버 주도 콘텐츠 협상을 수행한 후, 사용자 에이전트에서 정해준 규격에 따른 어떠한 콘텐츠도 찾지 않았을 때, 웹서버가 보냅니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 407 Proxy Authentication Required</strong>
+            <p>이것은 401과 비슷하지만 프록시에 의해 완료된 인증이 필요합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 408 Request Timeout</strong>
+            <p>이 응답은 요청을 한 지 시간이 오래된 연결에 일부 서버가 전송하며, 어떤 때에는 이전에 클라이언트로부터 어떠한 요청이 없었다고 하더라도 보내지기도 합니다. 이것은 서버가 사용되지 않는 연결을 끊고 싶어하는 것을 의미합니다. 이 응답은 특정 몇몇 브라우저에서 빈번하게 보이는데 Chrome, Firefox 27+, 또는 IE 9와 같은 웹서핑 속도를 올리기 위해 HTTP 사전 연결 메카니즘을 사용하는 브라우저들이 해당됩니다. 또한 일부 서버는 이 메시지를 보내지 않고 연결을 끊어버리기도 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 409 Conflict</strong>
+            <p>이 응답은 요청이 현재 서버의 상태와 충돌될 때 보냅니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 410 Gone</strong>
+            <p>이 응답은 요청한 콘텐츠가 서버에서 영구적으로 삭제되었으며, 전달해 줄 수 있는 주소 역시 존재하지 않을 때 보냅니다. 클라이언트가 그들의 캐시와 리소스에 대한 링크를 지우기를 기대합니다. HTTP 기술 사양은 이 상태 코드가 '일시적인, 홍보용 서비스'에 사용되기를 기대합니다. API는 알려진 리소스가 이 상태 코드와 함께 삭제되었다고 강요해서는 안된다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 411 Length Required</strong>
+            <p>서버에서 필요로 하는 Content-Length 헤더 필드가 정의되지 않은 요청이 들어왔기 때문에 서버가 요청을 거절합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 412 Precondition Failed</strong>
+            <p>클라이언트의 헤더에 있는 전제조건은 서버의 전제조건에 적절하지 않습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 413 Payload Too Large</strong>
+            <p>요청 엔티티는 서버에서 정의한 한계보다 큽니다. 서버는 연결을 끊거나 혹은 Retry-After 헤더 필드로 돌려보낼 것이다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 414 URI Too Long</strong>
+            <p>클라이언트가 요청한 URI는 서버에서 처리하지 않기로 한 길이보다 깁니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 415 Unsupported Media Type</strong>
+            <p>요청한 미디어 포맷은 서버에서 지원하지 않습니다. 서버는 해당 요청을 거절할 것입니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 416 Requested Range Not Satisfiable</strong>
+            <p>Range 헤더 필드에 요청한 지정 범위를 만족시킬 수 없습니다. 범위가 타겟 URI 데이터의 크기를 벗어났을 가능성이 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 417 Expectation Failed</strong>
+            <p>이 응답 코드는 Expect 요청 헤더 필드로 요청한 예상이 서버에서는 적당하지 않음을 알려줍니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 418 I'm a teapot</strong>
+            <p>서버는 커피를 찻 주전자에 끓이는 것을 거절합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 421 Misdirected Request</strong>
+            <p>서버로 유도된 요청은 응답을 생성할 수 없습니다. 이것은 서버에서 요청 URI와 연결된 스킴과 권한을 구성하여 응답을 생성할 수 없을 때 보내집니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 422 Unprocessable Entity (WebDAV)</strong>
+            <p>요청은 잘 만들어졌지만, 문법 오류로 인하여 따를 수 없습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 423 Locked (WebDAV)</strong>
+            <p>리소스는 접근하는 것이 잠겨있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 424 Failed Dependency (WebDAV)</strong>
+            <p>이전 요청이 실패하였기 때문에 지금의 요청도 실패하였습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 426 Upgrade Required</strong>
+            <p>서버는 지금의 프로토콜을 사용하여 요청을 처리하는 것을 거절하였지만, 클라이언트가 다른 프로토콜로 업그레이드를 하면 처리를 할지도 모릅니다. 서버는 Upgrade 헤더와 필요로 하는 프로토콜을 알려주기 위해 426 응답에 보냅니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 428 Precondition Required</strong>
+            <p>오리진 서버는 요청이 조건적이어야 합니다. 클라이언트가 리소스를 GET해서, 수정하고, 그리고 PUT으로 서버에 돌려놓는 동안 서드파티가 서버의 상태를 수정하여 발생하는 충돌인 '업데이트 상실'을 예방하기 위한 목적입니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 429 Too Many Requests</strong>
+            <p>사용자가 지정된 시간에 너무 많은 요청을 보냈습니다("rate limiting").</p>
+          </li>
+          <li class="my-5">
+            <strong>- 431 Request Header Fields Too Large</strong>
+            <p>요청한 헤더 필드가 너무 크기 때문에 서버는 요청을 처리하지 않을 것입니다. 요청은 크기를 줄인 다음에 다시 전송해야 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 451 Unavailable For Legal Reasons</strong>
+            <p>사용자가 요청한 것은 정부에 의해 검열된 웹페이지와 같은 불법적인 리소스입니다.</p>
+          </li>
+        </ol>
+        <h2 class="text-lg font-bold mt-10">5XX : Server error responses</h2>
+        <ol class="p-5 border-2 border-slate-200 mt-2">
+          <li>
+            <strong>- 500 Internal Server Error</strong>
+            <p>웹 사이트 서버에 문제가 있음을 의미하지만 서버는 정확한 문제에 대해 더 구체적으로 설명할 수 없습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 501 Not Implemented</strong>
+            <p class="mb-2">서버가 요청을 이행하는 데 필요한 기능을 지원하지 않음을 나타냅니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 502 Bad Gateway</strong>
+            <p>서버가 게이트웨이로부터 잘못된 응답을 수신했음을 의미합니다. 인터넷상의 서버가 다른 서버로부터 유효하지 않은 응답을 받은 경우 발생합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 503 Service Unavailable</strong>
+            <p>서버가 요청을 처리할 준비가 되지 않았습니다. 일반적인 원인은 유지보수를 위해 작동이 중단되거나 과부하가 걸린 서버입니다. 이 응답과 함께 문제를 설명하는 사용자 친화적인 페이지가 전송되어야 한다는 점에 유의하십시오. 이 응답은 임시 조건에 사용되어야 하며, Retry-After: HTTP 헤더는 가능하면 서비스를 복구하기 전 예상 시간을 포함해야 합니다. 웹마스터는 또한 이러한 일시적인 조건 응답을 캐시하지 않아야 하므로 이 응답과 함께 전송되는 캐싱 관련 헤더에 대해서도 주의해야 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 504 Gateway Timeout</strong>
+            <p>웹페이지를 로드하거나 브라우저에서 다른 요청을 채우려는 동안 한 서버가 액세스하고 있는 다른 서버에서 적시에 응답을 받지 못했음을 의미합니다. 이 오류 응답은 서버가 게이트웨이 역할을 하고 있으며 적시에 응답을 받을 수 없을 경우 주어집니다. 이 오류는 대게 인터넷상의 서버 간의 네트워크 오류이거나 실제 서버의 문제입니다. 컴퓨터, 장치 또는 인터넷 연결에 문제가 아닐 수 있습니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 505 HTTP Version Not Supported</strong>
+            <p>서버에서 지원되지 않는 HTTP 버전을 클라이언트가 요청하였습니다. 대부분의 웹 브라우저는 웹 서버가 1.x 버전의 HTTP 프로토콜을 지원한다고 가정합니다. 실제로 1.0 이하의 매우 오래된 버전은 요즘 거의 사용되지 않습니다. 특히 최신 버전의 프로토콜보다 보안 및 성능이 좋지 않기 때문입니다. 따라서 웹 브라우저에서 이 오류가 표시되는 경우 웹 서버 소프트웨어에서 지원하는 HTTP 버전을 확인해 보아야 합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 506 Variant Also Negotiates</strong>
+            <p>서버에 내부 구성 오류가 있는 경우 발생합니다. 요청을 위한 투명한 콘텐츠 협상이 순환 참조로 이어집니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 507 Insufficient Storage</strong>
+            <p>선택한 가변 리소스는 투명한 서버에 내부 구성 요류가 있는 경우 발생합니다. 콘텐츠 협상에 참여하도록 구성되므로 협상 과정에서 적절한 끝점이 아닙니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 508 Loop Detected (WebDAV)</strong>
+            <p>서버가 요청을 처리하는 동안 무한 루프를 감지한 경우 발생합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 510 Not Extended</strong>
+            <p>서버가 요청을 이행하려면 요청에 대한 추가 확장이 필요합니다.</p>
+          </li>
+          <li class="my-5">
+            <strong>- 511 Network Authentication Required</strong>
+            <p>511 상태 코드는 클라이언트가 네트워크 액세스를 얻기 위해 인증할 필요가 있음을 나타냅니다.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+    
+    
+     
+  </body>
+</html>
