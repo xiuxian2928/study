@@ -5,19 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="/dist/output.css" rel="stylesheet">
-    <script src="./index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="./index.js"></script>
   </head>
   <body>
     <div class="container mx-auto p-10">
       <h1 class="text-2xl">ToDo List</h1>
-      <ul>
-        <li>
-          <button class="border ">
-            <span class="num">1.</span>
-            <span class="title">delectus aut autem</span>
-          </button>
-        </li>
+      <div class="mt-3">
+        <label for="all">
+          <input type="radio" name="complete" id="all" value="all" checked onclick="filterFetch(this)">
+          전체
+        </label>
+        <label for="success" class="mx-5">
+          <input type="radio" name="complete" id="success" value="true" onclick="filterFetch(this)">
+          완료
+        </label>
+        <label for="notSuccess">
+          <input type="radio" name="complete" id="notSuccess" value="false" onclick="filterFetch(this)">
+          진행
+        </label>
+      </div>
+      <ul class="listWrap">
       </ul>
     </div>
   </body>
