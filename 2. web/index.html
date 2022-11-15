@@ -6,9 +6,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   </head>
   <body>
-    <div class="container p-14">
+    <div class="container p-14 mx-auto">
+      <ul class="flex justify-center menu">
+        <li class="mx-3"><a href="#section1" class="p-3 inline-block bg-rose-100 rounded-lg">URL</a></li>
+        <li class="mx-3"><a href="#section2" class="p-3 inline-block bg-rose-100 rounded-lg">HTTP</a></li>
+        <li class="mx-3"><a href="#section3" class="p-3 inline-block bg-rose-100 rounded-lg">IP 주소</a></li>
+        <li class="mx-3"><a href="#section4" class="p-3 inline-block bg-rose-100 rounded-lg">도메인 주소</a></li>
+        <li class="mx-3"><a href="#section5" class="p-3 inline-block bg-rose-100 rounded-lg">포트 주소</a></li>
+      </ul>
+      <div class="mb-5 scroll" id="section1">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">URL</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) URL 이란?</h2>
+          <p>URL은 웹상에서 문서, 이미지, 동영상 등의 <strong>자원들의 위치를 나타내는 주소</strong>이다. <br/>쉽게 말해서, <strong>웹 페이지를 찾기 위한 주소</strong>를 말한다.<br/><br/>
+          ex) <br/>구글 -> <a href="https://www.google.co.kr/">https://www.google.co.kr/</a>
+          <br/>네이버 -> <a href="https://www.naver.com/">https://www.naver.com/</a></p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) URL 구조</h2>
+          <p>URL은 크게 3가지로 구성되어 있다.</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- 프로토콜 종류</li>
+            <li>- 자원이 있는 서버의 IP 주소, 도메인 주소, 포트 주소</li>
+            <li>- 자원의 위치</li>
+          </ol>
+          <p>그러므로 URL은 보통</p>
+          <p class="bg-[#eee] px-10 py-5 my-3">프로토콜 // IP주소 or 도메인 주소 or 포트 주소 / 자원 위치</p>
+          <p>의 형식을 가진다.</p>
+          <table class="w-full my-5 table-auto text-center">
+            <tbody>
+              <tr>
+                <td class="px-5 py-3 border">URL</td>
+                <td class="px-5 py-3 border" colspan="5"><a href="https://ko.wikipedia.org/wiki/URL">https://ko.wikipedia.org/wiki/URL</a></td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 border" rowspan="2">구조</td>
+                <td class="px-5 py-3 border">https</td>
+                <td class="px-5 py-3 border">://</td>
+                <td class="px-5 py-3 border">ko.wikipedia.org</td>
+                <td class="px-5 py-3 border">/</td>
+                <td class="px-5 py-3 border">wiki/URL</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 border">프로토콜</td>
+                <td class="px-5 py-3 border"></td>
+                <td class="px-5 py-3 border">도메인 주소</td>
+                <td class="px-5 py-3 border"></td>
+                <td class="px-5 py-3 border">자원 위치</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="section2">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">HTTP</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) HTTP 란?</h2>
+          <p>http는 <strong>서버와 클라이언트가 인터넷 상에서 데이터를 주고받기 위한 프로토콜(protocol)</strong>이다.</p>
+          <p>http는 어떤 종류의 데이터도 전송할 수 있도록 설계되어 있다.<br/>예를 들어 이미지, 동영상, 오디오, 텍스트 문서 등 종류를 가리지 않고 전송할 수 있다.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) http 작동 방식</h2>
+          <p>http는 서버/클라이어트 모델을 따른다.</p>
+          <p><strong>클라이언트가 서버에게 요청(request)</strong>을 보내면, <strong>서버는 클라이언트에게 응답(response)</strong>을 보낸다</p>
+          <p class="mt-3">http는 <strong>무상태 프로토콜</strong>이며, <strong>stateless(무상태) 방식</strong>을 따른다.</p>
+          <p><strong>stateless(무상태) 방식</strong>은, 간단히 말하면 <strong>서버가 여러 클라이언트들을 구별할 수 없다는 것</strong>이다.</p>
+          <p>예를 들어, 클라이언트가 서버에게 요청을 보내고, 서버가 응답한 수 연결이 끊겼다고 가정.. 그 후에 똑같은 클라이언트가 또다시 서버에게 요청 했을 때, 서버는 그 클라이언트가 아까의 클라이언트인지 아닌지 구별 할 수 없다.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">3) stateless(무상태) 방식의 장·단점</h2>
+          <div class="my-5">
+            <h3 class="font-bold">장점</h3>
+            <ol class="p-5 border-2 border-slate-200 mt-2">
+              <li>- 불특정 다수를 대상으로 하는 서비스에 적합</li>
+              <li>- 클라이언트와 서버가 최대 연결 수 보다 훨씬 많은 요청과 응답을 처리할 수 있다.</li>
+            </ol>
+          </div>
+          <div class="my-5">
+            <h3 class="font-bold">단점</h3>
+            <ol class="p-5 border-2 border-slate-200 mt-2">
+              <li>- 연결이 끊어진 후에는 클라이언트가 이전에 무엇을 햇는지 알 수 없다.</li>
+              <li>(이러한 단점을 보안하기 위해 cookie가 생겼다.)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="section3">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">IP 주소</h1>
+        <div class="mb-10">
+          <p>IP 주소 (Internet Protocol address, IP address)는 <strong>컴퓨터 네트워크 상에서 각 장치들의 고유 번호</strong>이다.</p>
+          <p>쉽게 말해, 장치의 전화번호</p>
+          <p>IP 주소의 형식은 예를들어, 2607:4700:4700:0000:0000:0000:1111 와 같다.</p>
+          <p>이러한 <strong>번호들의 나열</strong>이 각 <strong>장치들의 고유한 주소</strong>인 것이다.</p>
+          <p>각각의 장치들은 IP 주소를 이용하여 데이터를 전송하기도 전달받기도 한다.</p>
+          <p>하지만 IP 주소 형식은 외우거나 구별하기 어렵기 때문에, <strong>DNS를 통해</strong> 구별하기 쉬운 <strong>도메인 주소로 변환</strong>된다.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) http 작동 방식</h2>
+          <p>http는 서버/클라이어트 모델을 따른다.</p>
+          <p><strong>클라이언트가 서버에게 요청(request)</strong>을 보내면, <strong>서버는 클라이언트에게 응답(response)</strong>을 보낸다</p>
+          <p class="mt-3">http는 <strong>무상태 프로토콜</strong>이며, <strong>stateless(무상태) 방식</strong>을 따른다.</p>
+          <p><strong>stateless(무상태) 방식</strong>은, 간단히 말하면 <strong>서버가 여러 클라이언트들을 구별할 수 없다는 것</strong>이다.</p>
+          <p>예를 들어, 클라이언트가 서버에게 요청을 보내고, 서버가 응답한 수 연결이 끊겼다고 가정.. 그 후에 똑같은 클라이언트가 또다시 서버에게 요청 했을 때, 서버는 그 클라이언트가 아까의 클라이언트인지 아닌지 구별 할 수 없다.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">3) stateless(무상태) 방식의 장·단점</h2>
+          <div class="my-5">
+            <h3 class="font-bold">장점</h3>
+            <ol class="p-5 border-2 border-slate-200 mt-2">
+              <li>- 불특정 다수를 대상으로 하는 서비스에 적합</li>
+              <li>- 클라이언트와 서버가 최대 연결 수 보다 훨씬 많은 요청과 응답을 처리할 수 있다.</li>
+            </ol>
+          </div>
+          <div class="my-5">
+            <h3 class="font-bold">단점</h3>
+            <ol class="p-5 border-2 border-slate-200 mt-2">
+              <li>- 연결이 끊어진 후에는 클라이언트가 이전에 무엇을 햇는지 알 수 없다.</li>
+              <li>(이러한 단점을 보안하기 위해 cookie가 생겼다.)</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+
+
+
       <div class="mb-5">
         <h1 class="text-2xl font-extrabold my-3">웹이란?</h1>
         <p>WEB : World Wide Web의 줄임말로 전세계적인 연결망을 나타내는 말</p>
@@ -60,17 +185,6 @@
           예를 들면 <br/>&lt;img src="https://www.server_A.com/a/b/exmaple.png".../&gt; 의 <br/>src 속성에 있는 이미지를 띄워주려면 img 태그의 src 속성에 적힌 URL로 다시 리퀘스트를 보내서 해당 이미지를 받아와야한다.<br/>
           이런식으로 보통 브라우저가 하나의 페이지를 그릴 때는 첫 리스폰스의 내용 안에서 또다시 요구되는 여러가지 다른 것들을 구하기 위해 다시 여러개의 리퀘스트를 보내는 것이 일반적이다. <br/>게다가 그렇게 또 받은 리스폰스의 내용에 따라 또 새로운 리퀘스트를 보내야 할 수도 있다. <br/>바로 이런 원리 때문에 우리가 어떤 웹페이지를 딱 한번 접속했다고 해도 그 사이에는 수많은 리퀘스트와 리스폰스가 발생하는 것이다.</p>
       </div>
-
-      
-       
-
-      
-
-      https://deftkang.tistory.com/119
-      https://khalidpark2029.tistory.com/129
-      https://velog.io/@rlaaltj1765/%EC%9B%B9-%ED%94%84%EB%A1%A0%ED%8A%B8%EC%99%80-%EB%B0%B1%EC%97%94%EB%93%9C%EC%9D%98-%EC%86%8C%ED%86%B5%EC%97%90-%EA%B4%80%ED%95%98%EC%97%AC-%EC%A1%B0%EC%82%AC
-
-      https://www.whatap.io/ko/blog/40/
     </div>
   </body>
 </html>
