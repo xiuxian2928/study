@@ -2,7 +2,7 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   .then(res => res.json())
   .then(data => {
     let jsonData = data;
-
+    console.table(jsonData);
     jsonData.map(function(data){
       creatList(data)
     })
