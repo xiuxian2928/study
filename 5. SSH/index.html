@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  </head>
+  <body>
+    <div class="container p-14 mx-auto">
+      <div class="mb-5 scroll" id="section1">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">SSH 이란?</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">SSH 이란?</h2>
+          <p>시큐어 셀(Secure SHell, SSH)은 네트워크 상의 다른 컴퓨터에 로그인하거나 원격 시스템에서 명령을 실행하고 다른 시스템으로 파일을 복사할 수 있도록 해주는 응용 프로그램 또는 그 프로토콜을 가리킨다. 즉, 네트워크 프로토콜 중 하나로 컴퓨터와 컴퓨터가 인터넷과 같은 Public Network를 통해서 서로 통신을 할 때 보안적으로 안전하게 통신을 하기 위해 사용하는 프로토콜이다.</p>
+        </div>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 대표적인 사용 :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- 데이터 전송</li>
+            <li>- 원격 제어</li>
+          </ol>
+        </div>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 데이터 전송의 예 :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- 깃 허브</li>
+            <li>- 원격 저장소, 소스 코드를 원격 저장소인 깃헙에 푸쉬를 할 때 SSH를 활용해 파일을 전송하게 된다.</li>
+          </ol>
+        </div>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 원격 제어의 예 :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- AWS와 같은 클라우드 서비스는 인스턴스 서버에 접속하여 해당 머신에 명령을 내리기 위해서 SSH을 통한 접속을 해야한다.</li>
+          </ol>
+        </div>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 사용이유 :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- 보안때문에 FTP나 Telnet과 같은 다른 컴퓨터 통신을 사용하지 않는다.</li>
+            <li>- SSH는 보안적으로 훨씬 안전한 채널을 구성한 뒤 정보를 교환하기 때문에 보다 보안적인 면에서 뛰어나다</li>
+          </ol>
+        </div>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 어떤 방식으로 서로 다른 컴퓨터가 안전하게 통신하게 하는가?</p>
+          <p class="font-bold pl-5 my-3">&ordm; Public Key and Private Key :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2 mx-5">
+            <li>- SSH는 다른 컴퓨터와 통신할 때 일반적으로 사용하는 비밀번호 입력을 통한 접속을 하지 않는다.</li>
+            <li>- 기본적으로 SSH는 한 쌍의 Key를 통해 접속하려는 컴퓨터와 인증 과정을 거친다.</li>
+            <li>- 이 한 쌍의 Key는 다음과 같다.</li>
+          </ol>
+          <p class="font-bold pl-5 my-3">&ordm; Public Key :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2 mx-5">
+            <li>- 단어 뜻 그대로 공개되어도 비교적 안전한 Key.</li>
+            <li>- 이 키를 통해 메세지를 전송하기 전 암호화를 한다.</li>
+            <li>- 암호화는 가능하지만 복호화는 불가능 하다.</li>
+          </ol>
+          <p class="font-bold pl-5 my-3">&ordm; Private Key :</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2 mx-5">
+            <li>- 절대로 외부에 노출되어서는 안되는 Key.</li>
+            <li>- 본인의 컴퓨터 내부에 저장하게 되어있다.</li>
+            <li>- 암호화된 메세지를 복호화 할 수 있다.</li>
+          </ol>
+        </div>
+        <div class="mb-10">
+          <p class="">이 한 쌍의 키는 서로 매우 복잡한 수학적인 관계를 맺고 있다.</p><br/>
+          <p>이러한 키를 통해 서로 다른 컴퓨터와 통신을 하기 위해서는 먼저 Public Key를 통신하고 있는 컴퓨터에 복사하여 저장한다. 그리고 요청을 보내는 클라이언트 사이트 컴퓨터에 접속 요청을 할 때 응답을 하는 서버 사이트 컴퓨터에 복사되어 정장된 Public Key와 클라이언트 사이트에 해당 Public Key와 쌍을 이루는 Private Key와 비교를 하여 서로 한 쌍의 Key인지 아닌지 검사한다.</p>
+          <br/>
+          <p>이렇게 서로 관계를 맺고 있는 Key라는 것이 증명되면 비로소 두 컴퓨터 사이에 암호화된 채널이 형성되어 Key를 활용해 메시지를 암호화하고 복호화하며 데이터를 주고 받을 수 있게 된다.</p>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="section2">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">복호화란?</h1>
+        <div class="mb-10">
+          <p class="font-bold">&ordm; 암호화 : 어떤 데이터를 암호화 해서 직접 그 의미를 알지 못하도록 하는 작업</p>
+          <p class="font-bold">&ordm; 복호화 : 암호화된 데이터를 해독하는 것</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
