@@ -18,12 +18,29 @@
         <li class="mx-3"><a href="#section5" class="p-3 inline-block bg-rose-100 rounded-lg">포트 주소</a></li>
       </ul>
       <div class="mb-5 scroll" id="section1">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">WEB</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) 웹이란?</h2>
+          <p>WEB : World Wide Web의 줄임말로 전세계적인 연결망을 나타내는 말</p>
+          <p>웹은 우리가 웹브라우저로 통해 돌아다니는 가상의 연결망 세계</p>
+          <p>웹페이지의 텍스트 : hyper text 다른 텍스트에 대한 참조를 가지고있는 텍스트</p>
+          <p>HTML : HyperText Markup Language의 줄임말</p>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="section1">
         <h1 class="text-2xl font-extrabold my-10 py-3 border-b">URL</h1>
         <div class="mb-10">
           <h2 class="text-lg mb-2 font-bold">1) URL 이란?</h2>
           <p>URL은 웹상에서 문서, 이미지, 동영상 등의 <strong>자원들의 위치를 나타내는 주소</strong>이다. <br/>쉽게 말해서, <strong>웹 페이지를 찾기 위한 주소</strong>를 말한다.<br/><br/>
           ex) <br/>구글 -> <a href="https://www.google.co.kr/">https://www.google.co.kr/</a>
           <br/>네이버 -> <a href="https://www.naver.com/">https://www.naver.com/</a></p>
+          <p>Uniform Resource Locator 의 약자</p><br/>
+          <p>웹에 존재하는 특정 데이터를 나타내는 문자열</p>
+          <ol class="p-5 border-2 border-slate-200 mt-2">
+            <li>- 호스트 : 전 세계 서버 중 하나의 서버를 특정 ex) wmakers.kr</li>
+            <li>- 경로(path) : 서버에 있는 데이터 중 원하는 데이터를 특정</li>
+            <li>- 쿼리(query) : 데이터에 관한 세부적인 요구사항 ?뒤에 나타나는 내용</li>
+          </ol>
         </div>
         <div class="mb-10">
           <h2 class="text-lg mb-2 font-bold">2) URL 구조</h2>
@@ -104,86 +121,94 @@
           <p>각각의 장치들은 IP 주소를 이용하여 데이터를 전송하기도 전달받기도 한다.</p>
           <p>하지만 IP 주소 형식은 외우거나 구별하기 어렵기 때문에, <strong>DNS를 통해</strong> 구별하기 쉬운 <strong>도메인 주소로 변환</strong>된다.</p>
         </div>
+      </div>   
+      <div class="mb-5 scroll" id="section4">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">도메인 주소</h1>
         <div class="mb-10">
-          <h2 class="text-lg mb-2 font-bold">2) http 작동 방식</h2>
-          <p>http는 서버/클라이어트 모델을 따른다.</p>
-          <p><strong>클라이언트가 서버에게 요청(request)</strong>을 보내면, <strong>서버는 클라이언트에게 응답(response)</strong>을 보낸다</p>
+          <p><strong>도메인 주소</strong>는 외우거나 식별하기 <strong>어려운 IP 주소</strong>(예 : 240.10.20.1)를 example.com처럼 기억하기 <strong>쉽게 만들어주는 네트워크 호스트 이름</strong>을 의미한다</p><br/>
+          <p>예를 들어</p>
+          <table class="w-full my-5 table-auto text-center">
+            <tbody>
+              <tr>
+                <td class="px-5 py-3 border">IP 주소</td>
+                <td class="px-5 py-3 border">도메인 주소</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 border">115.68.24.88</td>
+                <td class="px-5 py-3 border">opentutorials.org</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 border">220.95.233.172</td>
+                <td class="px-5 py-3 border">naver.com</td>
+              </tr>
+              <tr>
+                <td class="px-5 py-3 border">114.108.157.19</td>
+                <td class="px-5 py-3 border">daum.net</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>    
+      <div class="mb-5 scroll" id="section5">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">포트 주소</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) 포트 주소 란?</h2>
+          <p><strong>포트 주소</strong>는 소프트웨어에서는 <strong>네트워크 서비스나 특정 프로세스를 식별</strong>하는 논리 단위이다.</p><br/>
+          <p>포트는 <strong>번호로 구별</strong>되며 이 번호를 <strong>포트 번호</strong>라고 한다. 포트 번호는 IP 주소와 함께 쓰여 해당하는 프로토콜에 의해 사용된다.</p><br/>
+          <p>예를 들어, <strong>ftp://000.000.000.000:21</strong>라는 URL 에서 <strong>맨 마지막에 있는 21이 포트 번호</strong>이다.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) 웹(www)의 포트 번호</h2>
+          <p>각각의 네트워크 서비스에는 고유 포트 번호가 존재한다.</p>
+          <p><strong>웹(WWW)의 포트 번호는 80이다.</strong></p>
           <p class="mt-3">http는 <strong>무상태 프로토콜</strong>이며, <strong>stateless(무상태) 방식</strong>을 따른다.</p>
           <p><strong>stateless(무상태) 방식</strong>은, 간단히 말하면 <strong>서버가 여러 클라이언트들을 구별할 수 없다는 것</strong>이다.</p>
           <p>예를 들어, 클라이언트가 서버에게 요청을 보내고, 서버가 응답한 수 연결이 끊겼다고 가정.. 그 후에 똑같은 클라이언트가 또다시 서버에게 요청 했을 때, 서버는 그 클라이언트가 아까의 클라이언트인지 아닌지 구별 할 수 없다.</p>
         </div>
         <div class="mb-10">
-          <h2 class="text-lg mb-2 font-bold">3) stateless(무상태) 방식의 장·단점</h2>
           <div class="my-5">
-            <h3 class="font-bold">장점</h3>
-            <ol class="p-5 border-2 border-slate-200 mt-2">
-              <li>- 불특정 다수를 대상으로 하는 서비스에 적합</li>
-              <li>- 클라이언트와 서버가 최대 연결 수 보다 훨씬 많은 요청과 응답을 처리할 수 있다.</li>
-            </ol>
-          </div>
-          <div class="my-5">
-            <h3 class="font-bold">단점</h3>
-            <ol class="p-5 border-2 border-slate-200 mt-2">
-              <li>- 연결이 끊어진 후에는 클라이언트가 이전에 무엇을 햇는지 알 수 없다.</li>
-              <li>(이러한 단점을 보안하기 위해 cookie가 생겼다.)</li>
+            <h3 class="font-bold">포트번호 예시</h3>
+            <ol class="p-5 border-2 border-slate-200 mt-2 list-disc list-inside">
+              <li>20 : FTP(data)</li>
+              <li>21 : FTP(제어)</li>
+              <li>22 : SSH</li>
+              <li>23 : 텔넷</li>
+              <li>53 : DNS</li>
+              <li>80 : 월드 와이드 웹(WWW), HTTP</li>
+              <li>119 : NNTP</li>
+              <li>443 : TLS/SSL 방식의 HTTP</li>
             </ol>
           </div>
         </div>
       </div>
-
-
-
-
-      <div class="mb-5">
-        <h1 class="text-2xl font-extrabold my-3">웹이란?</h1>
-        <p>WEB : World Wide Web의 줄임말로 전세계적인 연결망을 나타내는 말</p>
-        <p>웹은 우리가 웹브라우저로 통해 돌아다니는 가상의 연결망 세계</p>
-        <p>웹페이지의 텍스트 : hyper text 다른 텍스트에 대한 참조를 가지고있는 텍스트</p>
-        <p>HTML : HyperText Markup Language의 줄임말</p>
-      </div>
-      <div class="mb-5">
-        <h1 class="text-2xl font-extrabold my-3">url이란?</h1>
-        <p>Uniform Resource Locator 의 약자</p>
-        <p>웹에 존재하는 특정 데이터를 나타내는 문자열</p>
-        <ol class="p-5 border-2 border-slate-200 mt-2">
-          <li>- 호스트 : 전 세계 서버 중 하나의 서버를 특정 ex) wmakers.kr</li>
-          <li>- 경로(path) : 서버에 있는 데이터 중 원하는 데이터를 특정</li>
-          <li>- 쿼리(query) : 데이터에 관한 세부적인 요구사항 ?뒤에 나타나는 내용</li>
-        </ol>
-      </div>
-      <div class="mb-5">
-        <h1 class="text-2xl font-extrabold my-3">웹브라우저의 동작 과정</h1>
-        <p>Uniform Resource Locator 의 약자</p>
-        <p>웹에 존재하는 특정 데이터를 나타내는 문자열</p>
-        <ol class="p-5">
-          <li class="py-2">1. 호스트 부분을 보고, 전세계의 수많은 서버들 중 정확히 어느 서버와 통신을 해야 하는지 찾는다
-            <p class="text-sm pl-5">* 이때 호스트 부분에 적힌 것을 도메인 네임이라고 한다. 특정 서버를 외우기 어려운 ip주소가 아니라 외우기 쉬운 문자열로 나타낸 것이 바로 도메인 네임이다. </p>
-            <p class="text-sm pl-5">* 웹 브라우저가 도메인 네임만으로 특정 서버를 식별하는 방법 : domain name resolution이라고 하는 작업을 수행하면 해당 도메인 네임을 나타내는 특정 서버를 식별할 수 있다</p>
-            <div class="p-5 border-2 border-slate-200 mt-2">
-              <p>* Domain Name Resolution의 원리</p>
-              <ol class="px-5">
-                <li class="py-2">- 1단계 : 내 컴퓨터는 기본적으로 설정된 네임서버에 wmakers.kr의 IP 주소를 알려달라는 요청을 보낸다. 네임 서버라는 건 도메인 네임을 IP 주소로 변화낳는 과정에 참여하는 서버들이다. 내 컴퓨터에서 맨 처음 어떤 네임 서버에 요청할 것인지는 미리 설정되어 있고, 기존의 설정에서 다른 네임 서버로 바꾸는 것도 가능하다. 내 컴퓨터가 사용하는 네임 서버에 관한 설정은 OS마다 다르다</li>
-                <li class="py-2">- 2,3단계 : 내 컴퓨터의 요청을 받은 네임 서버는 이제 루트 네임 서버에 '.kr'로 끝나는 도메인 네임들을 관리하는 네임 서버의 주소를 알려달라는 요청을 한다. 그럼 루트 네임 서버는 '.kr' 네임 서버의 IP 주소를 알려준다.</li>
-                <li class="py-2">- 4,5단계 : 네임 서버는 '.kr' 네임 서버에게 'wmakers.kr'의 IP 주소를 알려줄 수 있는 'wmakers.kr' 네임 서버의 IP 주소를 알려달라고 요청. 그럼 '.kr' 네임 서버는 'wmakers.kr' 네임 서버의 IP 주소를 알려준다.</li>
-                <li class="py-2">- 6,7단계 : 그럼 네임서버는 'wmakers.kr' 네임 서버에게 'wmakers.kr'의 IP 주소를 알려달라고 요청. 마침내 네임서버는 'wmakers.kr'의 실제 IP 주소를 응답으로 얻게 됨</li>
-                <li class="py-2">- 8단계 : 네임 서버는 내 컴퓨터에게 wmakers.kr의 IP주소를 알려주고, 내 컴퓨터는 이 IP주소를 갖고 코드잇 서버와 본격적인 통신을 시작</li>
-                <li class="py-2">(*도메인에 접속할 때마다 매번 이 과정을 거치는것은 아니다. 한번 IP 주소를 받은 후에는 내 컴퓨터의 OS가 그 IP 주소를 보통 별도로 저장해두고 계속 사용하기 때문, 또한 내 컴퓨터가 사용하는 가장 근처의 네임 서버 또한 자주 요청받는 도메인 네임에 대해서는 별도로 외부에 요청할 필요가 없도록 캐시로 관리하는 경우가 많다. 즉 이 과정 전체가 일어나는 경우는 일반적으로 처음 접속하는 도메인 주소인 경우에만 그렇다.)</li>
-              </ol>
-            </div>
-          </li>
-          <li class="py-2">2. 1번에서 어떤 서버와 통신해야 하는지를 식별하고 나면, 웹 브라우저는 해당 서버로 리퀘스트를 보낸다. 이때 URL에서 path 이후 부분들을 리퀘스트에 담아서 보낸다.</li>
-          <li class="py-2">3. 리퀘스트를 받은 서버는 리퀘스트에 담긴 path 이후의 부분들을 보고, 그것이 의미하는 데이터를 찾고, 찾은 결과를 리스폰스에 담아서 보내준다.</li>
-          <li class="py-2">4. 그럼 웹 브라우저는 받은 리스폰스의 내용을 갖고 사용자에게 보여준다. 이때 리스폰스의 내용이 HTML코드, Javascript코드 등에 해당하면 그에 맞는 예쁜화면을 사용자에게 그려서 보여주는 것. 리스폰스의 내용에는 다른 종류도 많다.</li>
-        </ol>
-      </div>
-      <div class="mb-5">
-        <h1 class="text-2xl font-extrabold my-3">HTTP란?</h1>
-        <p>http란 스킴이다. 스킴에는 프로토콜의 이름이 들어간다.</p>
-        <p class="mt-2">프로토콜이란? - 통신을 하는 두 주체가 지켜야 하는 통신 규약(브라우저랑 서버가 지켜야하는 규약)</p>
-        <p>hypertext transfer protocol</p>
-        <p class="mt-2">우리가 어떤 웹 페이지를 보기 위해 URL을 입력하고 엔터를 치면 <br/>보통 한 번 이상의 리퀘스트와 리스폰스가 오고간다.<br/>
-          예를 들면 <br/>&lt;img src="https://www.server_A.com/a/b/exmaple.png".../&gt; 의 <br/>src 속성에 있는 이미지를 띄워주려면 img 태그의 src 속성에 적힌 URL로 다시 리퀘스트를 보내서 해당 이미지를 받아와야한다.<br/>
-          이런식으로 보통 브라우저가 하나의 페이지를 그릴 때는 첫 리스폰스의 내용 안에서 또다시 요구되는 여러가지 다른 것들을 구하기 위해 다시 여러개의 리퀘스트를 보내는 것이 일반적이다. <br/>게다가 그렇게 또 받은 리스폰스의 내용에 따라 또 새로운 리퀘스트를 보내야 할 수도 있다. <br/>바로 이런 원리 때문에 우리가 어떤 웹페이지를 딱 한번 접속했다고 해도 그 사이에는 수많은 리퀘스트와 리스폰스가 발생하는 것이다.</p>
+      <div class="mb-5 scroll" id="section5">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">웹브라우저의 동작 과정</h1>
+        <div class="mb-10">
+          <p>Uniform Resource Locator 의 약자</p>
+          <p>웹에 존재하는 특정 데이터를 나타내는 문자열</p>
+        </div>
+        <div class="mb-10">
+          <ol class="">
+            <li class="py-2">1. 호스트 부분을 보고, 전세계의 수많은 서버들 중 정확히 어느 서버와 통신을 해야 하는지 찾는다
+              <p class="text-sm pl-5">* 이때 호스트 부분에 적힌 것을 도메인 네임이라고 한다. 특정 서버를 외우기 어려운 ip주소가 아니라 외우기 쉬운 문자열로 나타낸 것이 바로 도메인 네임이다. </p>
+              <p class="text-sm pl-5">* 웹 브라우저가 도메인 네임만으로 특정 서버를 식별하는 방법 : domain name resolution이라고 하는 작업을 수행하면 해당 도메인 네임을 나타내는 특정 서버를 식별할 수 있다</p>
+              <div class="p-5 border-2 border-slate-200 mt-2">
+                <p>* Domain Name Resolution의 원리</p>
+                <ol class="px-5">
+                  <li class="py-2">- 1단계 : 내 컴퓨터는 기본적으로 설정된 네임서버에 wmakers.kr의 IP 주소를 알려달라는 요청을 보낸다. 네임 서버라는 건 도메인 네임을 IP 주소로 변화낳는 과정에 참여하는 서버들이다. 내 컴퓨터에서 맨 처음 어떤 네임 서버에 요청할 것인지는 미리 설정되어 있고, 기존의 설정에서 다른 네임 서버로 바꾸는 것도 가능하다. 내 컴퓨터가 사용하는 네임 서버에 관한 설정은 OS마다 다르다</li>
+                  <li class="py-2">- 2,3단계 : 내 컴퓨터의 요청을 받은 네임 서버는 이제 루트 네임 서버에 '.kr'로 끝나는 도메인 네임들을 관리하는 네임 서버의 주소를 알려달라는 요청을 한다. 그럼 루트 네임 서버는 '.kr' 네임 서버의 IP 주소를 알려준다.</li>
+                  <li class="py-2">- 4,5단계 : 네임 서버는 '.kr' 네임 서버에게 'wmakers.kr'의 IP 주소를 알려줄 수 있는 'wmakers.kr' 네임 서버의 IP 주소를 알려달라고 요청. 그럼 '.kr' 네임 서버는 'wmakers.kr' 네임 서버의 IP 주소를 알려준다.</li>
+                  <li class="py-2">- 6,7단계 : 그럼 네임서버는 'wmakers.kr' 네임 서버에게 'wmakers.kr'의 IP 주소를 알려달라고 요청. 마침내 네임서버는 'wmakers.kr'의 실제 IP 주소를 응답으로 얻게 됨</li>
+                  <li class="py-2">- 8단계 : 네임 서버는 내 컴퓨터에게 wmakers.kr의 IP주소를 알려주고, 내 컴퓨터는 이 IP주소를 갖고 코드잇 서버와 본격적인 통신을 시작</li>
+                  <li class="py-2">(*도메인에 접속할 때마다 매번 이 과정을 거치는것은 아니다. 한번 IP 주소를 받은 후에는 내 컴퓨터의 OS가 그 IP 주소를 보통 별도로 저장해두고 계속 사용하기 때문, 또한 내 컴퓨터가 사용하는 가장 근처의 네임 서버 또한 자주 요청받는 도메인 네임에 대해서는 별도로 외부에 요청할 필요가 없도록 캐시로 관리하는 경우가 많다. 즉 이 과정 전체가 일어나는 경우는 일반적으로 처음 접속하는 도메인 주소인 경우에만 그렇다.)</li>
+                </ol>
+              </div>
+            </li>
+            <li class="py-2">2. 1번에서 어떤 서버와 통신해야 하는지를 식별하고 나면, 웹 브라우저는 해당 서버로 리퀘스트를 보낸다. 이때 URL에서 path 이후 부분들을 리퀘스트에 담아서 보낸다.</li>
+            <li class="py-2">3. 리퀘스트를 받은 서버는 리퀘스트에 담긴 path 이후의 부분들을 보고, 그것이 의미하는 데이터를 찾고, 찾은 결과를 리스폰스에 담아서 보내준다.</li>
+            <li class="py-2">4. 그럼 웹 브라우저는 받은 리스폰스의 내용을 갖고 사용자에게 보여준다. 이때 리스폰스의 내용이 HTML코드, Javascript코드 등에 해당하면 그에 맞는 예쁜화면을 사용자에게 그려서 보여주는 것. 리스폰스의 내용에는 다른 종류도 많다.</li>
+          </ol>
+        </div>
       </div>
     </div>
   </body>
