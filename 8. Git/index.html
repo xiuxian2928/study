@@ -18,137 +18,82 @@
           <li class="my-4"><strong>git config user.email 'cjc2929@naver.com'</strong> - 현재 사용자의 이메일 주소를 'cjc2929@naver.com'로 설정(커밋할 때 필요한 정보)</li>
           <li class="my-4"><strong>git add [파일 이름]</strong> - 수정사항이 있는 특정 파일을 staging area에 올리기</li>
           <li class="my-4"><strong>git add [디렉토리명]</strong> - 해당 디렉토리 내에서 수정사항이 있는 모든 파일들을 staging area에 올리기</li>
-          <li class="my-4"><strong></strong></li>
-          <li class="my-4"><strong></strong></li>
-          <li class="my-4"><strong></strong></li>
-          <li class="my-4"><strong></strong></li>
-          <li class="my-4"><strong></strong></li>
+          <li class="my-4"><strong>git add .</strong> - working directory 내의 수정사항이 있는 모든 파일들을 staging area에 올리기</li>
+          <li class="my-4"><strong>git reset [파일이름]</strong> - staging area에 올렸던 파일 다시 내리기</li>
+          <li class="my-4"><strong>git status</strong> - Git이 현재 인식하고 있는 프로젝트 관련 내용들 출력(문제 상황이 발생했을 때 현재 상태를 파악하기 위해 활용하면 좋음)</li>
+          <li class="my-4"><strong>git commit -m "커밋메세지"</strong> - 현재 staging area에 있는 것들 커밋 남기기</li>
+          <li class="my-4"><strong>git help [커맨드 이름]</strong> - 사용법이 궁금한 Git 커맨드의 공식 메뉴얼 내용 출력</li>
         </ol>
       </div>
       <div class="mb-5 scroll" id="section2">
-        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Named Function (기명함수)</h1>
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">GitHub 시작하기</h1>
         <div class="mb-10">
-          <p>Named Function은 말그대로 사용자가 이름을 지정한 함수로, 선언적 함수라고도 부르는 함수이다.</p>
-        </div>
-        <div class="mb-10">
-          <p class="bg-[#eee] px-10 py-5 my-3">function nameFunction(){}<br/><br/>nameFunction();</p>
+          <ol class="mt-2 list-disc">
+            <li class="my-4"><strong>git push -u(또는 --set-upstream) origin master</strong> - 로컬 레포지토리의 내용을 처음으로 리모트 레포지토리에 올릴 때 사용한다.</li>
+            <li class="my-4"><strong>git push</strong> - 위의 커맨드를 한번 실행하고 난 후에는 git push라고만 쳐도 로컬 레포지토리의 내용을 리모트 레포지토리에 올릴 수 있다.</li>
+            <li class="my-4"><strong>git pull</strong> - 바로 위의 위에 있는 커맨드를 한번 실행하고 난 후에는 git pull이라고만 쳐도 리모트 레포지토리의 내용을 로컬 레포지토리로 가져온다.</li>
+            <li class="my-4"><strong>git clone [프로젝트의 GitHub 상 주소]</strong> - GitHub에 있는 프로젝트를 내 컴퓨터로 가져오기</li>
+          </ol>
         </div>
       </div>
       <div class="mb-5 scroll" id="section3">
-        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Anonymouse Function 과 Named Function의 차이</h1>
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Git에서 커밋 다루기</h1>
         <div class="mb-10">
-          <p>두 함수는 브라우저가 읽는 순서의 차이가 있다.</p>
-          <p class="border-2 border-slate-200 px-10 py-5 my-3"><strong>Anonymouse Function</strong> 같은 경우는 브라우저가 런타임(RunTime)에 동적으로 선언되는 함수입니다.</p>
-          <p class="border-2 border-slate-200 px-10 py-5 my-3"><strong>Named Function</strong> 같은 경우는 브라우저가 런타임(RunTime) 이전에 선언되는 함수입니다.</p>
-        </div>
-        <div class="mb-10">
-          <h2 class="text-lg mb-2 font-bold">ex)</h2>
-          <p class="bg-[#eee] px-10 py-5 my-3">
-            // 기명함수가 앞으로, 무명함수가 뒤로
-            <span class="block">function func(){</span>
-            <span class="block pl-6">console.log('기명 함수 입니다.'');</span>
-            <span class="block">}</span><br/>
-            <span class="block">var func = function(){</span>
-            <span class="block pl-6">console.log('무명 함수 입니다.'');</span>
-            <span class="block">}</span><br/>
-            <span class="block">func();</span><br/><br/>
-            // 무명함수가 앞으로, 기명함수가 뒤로
-            <span class="block">var func2 = function(){</span>
-            <span class="block pl-6">console.log('무명 함수 입니다.'');</span>
-            <span class="block">}</span><br/>
-            <span class="block">function func2(){</span>
-            <span class="block pl-6">console.log('기명 함수 입니다.'');</span>
-            <span class="block">}</span><br/>
-            <span class="block">func2();</span><br/>
-          </p>
-        </div>
-        <div class="mb-10">
-          <p>둘다 같은 이름으로 선언하고 호출 했을 때 실행되는 함수는 둘다 무명함수이다.<br/>이렇듯, Anonymouse Function이 Named Function 이후에 실행이 되므로 익명함수가 실행되게 되는 것이다.</p>
+          <ol class="mt-2 list-disc">
+            <li class="my-4"><strong>git log</strong> - 커밋 히스토리 출력</li>
+            <li class="my-4"><strong>git log --pretty=oneline</strong> - --pretty 옵션을 사용하면 커밋 히스토리를 다양한 방식으로 출력 할 수 있습니다. --pretty 옵션에 oneline이라는 값을 주면 커밋 하나당 한 줄씩 출력해준다.<a href="https://git-scm.com/docs/pretty-formats" target="_blank" class="block text-red-500">--pretty 옵션 더 알아보기</a></li>
+            <li class="my-4"><strong>git show [커밋 아이디]</strong> - 특정 커밋에서 어떤 변경사항이 있었는지 확인</li>
+            <li class="my-4"><strong>git commit --amend</strong> - 최신 커밋을 다시 수정해서 새로운 커밋으로 만듦</li>
+            <li class="my-4"><strong>git config alias.[별명] [커맨드]</strong> - 길이가 긴 커맨드에 별명을 붙여서 이후로는 별명으로도 해당 커맨드를 실행할 수 있게 설정</li>
+            <li class="my-4"><strong>git diff [커밋 A 아이디] [커밋 B 아이디]</strong> - 두 커밋 간에 차이 비교</li>
+            <li class="my-4"><strong>git reset [옵션] [커밋 아이디]</strong> - 옵션에 따라 하는 작업이 달라짐(옵션을 생략하면 --mixed 옵션이 기본)
+              <ol class="mt-2 list-none">
+                <li class="my-4">(1) HEAD가 특정 커밋을 가리키도록 이동시킴 (--soft는 여기까지)</li>
+                <li class="my-4">(2) staging area도 특정 커밋처럼 리셋 (--mixed는 여기까지)</li>
+                <li class="my-4">(3) working directory도 특정 커밋처럼 리셋 (--hard는 여기까지)</li>
+                <li class="my-4">** 이때 커밋 아이디 대신 HEAD의 위치를 기준으로 한 표기법(ex: HEAD^, HEAD~3)을 사용해도 됨</li>
+              </ol>
+            </li>
+            <li class="my-4"><strong>git tag [태그이름] [커밋 아이디]</strong> - 특정 커밋에 태그를 붙임</li>
+          </ol>
         </div>
       </div>
       <div class="mb-5 scroll" id="section4">
-        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Arrow Function</h1>
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Git에서 브랜치 사용하기</h1>
         <div class="mb-10">
-          <p>Arrow Function은 익명 함수를 좀 더 간결하게 표현할 수 있도록 ES2015에서 새롭게 등장한 함수 선언 방식이다.</p>
-        </div>
-        <div class="mb-10">
-          <h2 class="text-lg mb-2 font-bold">ex)</h2>
-          <p class="bg-[#eee] px-10 py-5 my-3">
-            // arrow function 정의
-            <span class="block">const getTwice = (number) => {</span>
-            <span class="block pl-6">return number * 2;</span>
-            <span class="block">};</span><br/>
-            // 콜백 함수로 활용
-            <span class="block">myBtn.addEventListener('click', () => {</span>
-            <span class="block pl-6">console.log('button is clicked!);</span>
-            <span class="block">};</span>
-          </p>
-        </div>
-        <div class="mb-10">
-          <p>Arrow Function은 다양한 상황에 따라 축약형으로 작성될 수 있다.</p>
-        </div>
-        <div class="mb-10">
-          <p class="bg-[#eee] px-10 py-5 my-3">
-            // 1. 함수의 파라미터가 하나 뿐일 때
-            <span class="block">const getTwice = (number) => {</span>
-            <span class="block pl-6">return number * 2;</span>
-            <span class="block">};</span><br/>
-            // 파라미터를 감싸는 소괄호 생략 가능
-            <span class="block">const getTwice = number => {</span>
-            <span class="block pl-6">return number * 2;</span>
-            <span class="block">};</span><br/>
-            // 2. 함수 동작 부분이 return문만 있을 때
-            <span class="block">const sum = (a, b) => {</span>
-            <span class="block pl-6">return a + b;</span>
-            <span class="block">};</span><br/>
-            // return문과 중괄호 생략 가능
-            <span class="block">const sum = (a, b) => a + b;</span>
-          </p>
-        </div>
-        <div class="mb-10">
-          <p>그리고 Arrow function이 일반 함수와 몇가지 차이점이 있다.</p>
-          <p>가장 대표적인 차이점은 arguments 객체가 없고, this가 가리키는 값이 일반 함수와는 다른 점이다.</p>
+          <ol class="mt-2 list-disc">
+            <li class="my-4"><strong>git branch [새 브랜치 이름]</strong> - 새로운 브랜치를 생성</li>
+            <li class="my-4"><strong>git checkout -b [새 브랜치 이름]</strong> - 새로운 브랜치를 생성하고 그 브랜치로 바로 이동</li>
+            <li class="my-4"><strong>git branch -d [기존 브랜치 이름]</strong> - 브랜치 삭제</li>
+            <li class="my-4"><strong>git checkout [기존 브랜치 이름]</strong> - 그 브랜치로 이동</li>
+            <li class="my-4"><strong>git merge [기존 브랜치 이름]</strong> - 현재 브랜치에 다른 브랜치를 머지</li>
+            <li class="my-4"><strong>git merge --abort</strong> - 머지를 하다가 onflict가 발생했을 때, 일단은 머지 작업을 취소하고 이전 상태로 돌아감</li>
+          </ol>
         </div>
       </div>
-      <div class="mb-5 scroll" id="section1">
-        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">arguments 객체</h1>
+      <div class="mb-5 scroll" id="section5">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">Git 실전</h1>
         <div class="mb-10">
-          <p>자바스크립트 함수 안에는 arguments라는 독특한 객체가 존재한다.</p>
-          <p>arguments 객체는 함수를 호출할 때 전달한 아규먼트들을 배열의 형태로 모아둔 유사 배열 객체이다. 특히, 함수를 호출할 때 전달되는 아규먼트의 개수가 불규칙적일 때 유용하게 활용될 수 있다.</p>
-        </div>
-        <div class="mb-10">
-          <p class="bg-[#eee] px-10 py-5 my-3">
-            <span class="block">function printArguments(){</span>
-            <span class="block pl-6">// arguments 객체의 요소들을 하나씩 출력</span>
-            <span class="block pl-6">for (const arg of arguments){
-              <span class="block pl-6">console.log(arg)</span>
-            </span>
-            <span class="block pl-6">}</span>
-            <span class="block">}</span><br/>
-            <span class="block">printArguments('Young', 'Mark', 'Koby');</span>
-            <span>// 'Young', 'Mark', 'Koby'가 콘솔에 하나씩 출력됨</span>
-          </p>
+          <ol class="mt-2 list-disc">
+            <li class="my-4"><strong>git fetch</strong> - 로컬 레포지토리에서 현재 HEAD가 가리키는 브랜치의 업스트림(upstream) 브랜치로부터 최신 커밋들을 가져옴(가져오기만 한다는 점에서, 가져와서 머지까지 하는 git pull과는 차이가 있음)</li>
+            <li class="my-4"><strong>git blame</strong> - 특정 파일의 내용 한줄한줄이 어떤 커밋에 의해 생긴 것인지 출력</li>
+            <li class="my-4"><strong>git revert</strong> - 특정 커밋에서 이루어진 작업을 되돌리는(취소하는) 커밋을 새로 생성</li>
+            <li class="my-4"><strong>git reflog</strong> - HEAD가 그동안 가리켜왔던 커밋들의 기록을 출력</li>
+            <li class="my-4"><strong>git log --all --graph</strong> - 모든 브랜치의 커밋 히스토리를, 커밋 간의 관계가 잘 드러나도록 그래프 형식으로 출력</li>
+            <li class="my-4"><strong>git rebase [브랜치 이름]</strong> - A, B 브랜치가 있는 상태에서 지금 HEAD가 A 브랜치를 가리킬 때, git rebase B를 실행하면 A, B 브랜치가 분기하는 시작점이 된 공통 커밋 이후로부터 존재하는 A 브랜치 상의 커밋들이 그대로 B 브랜치의 최신 커밋 이후로 이어 붙여짐 (git merge와 같은 효과를 가지지만 커밋 히스토리가 한 줄로 깔끔하게 된다는 차이점이 있음)</li>
+            <li class="my-4"><strong>git stash</strong> - 현재 작업 내용을 스택 영역에 저장</li>
+            <li class="my-4"><strong>git stash apply [커밋 아이디]</strong> - 스택 영역에 저장된 가장 최근의(혹은 특정) 작업 내용을 working directory에 적용</li>
+            <li class="my-4"><strong>git stash drop [커밋 아이디]</strong> - 스택 영역에 저장된 가장 최근의(혹은 특정) 작업 내용을 스택에서 삭제</li>
+            <li class="my-4"><strong>git stash pop [커밋 아이디]</strong> - 스택 영역에 저장된 가장 최근의(혹은 특정) 작업 내용을 working direcory에 적용하면서 스택에서 삭제</li>
+            <li class="my-4"><strong>git cherry-pick [커밋 아이디]</strong> - 특정 커밋의 내용을 현재 커밋에 반영</li>
+          </ol>
         </div>
       </div>
-      <div class="mb-5 scroll" id="section1">
-        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">this</h1>
+      <div class="mb-5 scroll" id="section6">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">그 밖에 알아야할 사실</h1>
         <div class="mb-10">
-          <p>자바스크립트에는 this라는 조금 특별한 키워드가 있다.</p>
-          <p>웹 브라우저에서 this가 사용될 때는 전역 객체, Window 객체를 가지게 된다. 하지만 객체의 메소드를 정의하기 위한 함수 안에선 메소드를 호출한 객체를 가리키게 된다.</p>
-        </div>
-        <div class="mb-10">
-          <p class="bg-[#eee] px-10 py-5 my-3">
-            <span class="block">const = {</span>
-            <span class="block pl-6">firestName: 'Tess'</span>
-            <span class="block pl-6">lastName: 'Jang',</span>
-            <span class="block pl-6">getFullName: function(){
-              <span class="block pl-6">return `${this.firestName} ${this.lastName}`;</span>
-            },
-            </span>
-            <span class="block">}</span><br/>
-            <span class="block">console.log(user.getFullName());</span>
-            <span>// getFullName 안에서의 this는 getFullName을 호출한 user객체가 담긴다.</span>
-          </p>
+          <p class="my-4">(1) git commit 이라고만 쓰고 실행하면 커밋 메시지를 입력할 수 있는 텍스트 에디터 창이 뜬다(vim). 거기서 커밋 메세지를 입력하고 저장(:wq)하면 커밋이 생성됨</p>
+          <p class="my-4">(2) git push 와 git pull 은 그 작업 단위가 브랜치이다. 예를 들어, master 브랜치에서 git push를 하면 master 브랜치의 내용만 리모트 레포지토리의 master 브랜치로 전송되지, premium 브랜치의 내용이 전송되는 것은 아닙니다.(git push에 -all이라는 옵션을 주면 모든 브랜치의 내용을 전송할 수 있기는 합니다</p>
         </div>
       </div>
     </div>
