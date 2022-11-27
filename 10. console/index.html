@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <div class="container p-14 mx-auto">
+      <div class="mb-5 scroll" id="section1">
+        <h1 class="text-2xl font-extrabold my-10 py-3 border-b">console</h1>
+        <div class="mb-10">
+          <p>console개체는 브라우저의 디버깅 콘솔에 대한 액세스를 제공.</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) Instance Method</h2>
+          <ol class="p-5 pl-10 border-2 border-slate-200 mt-2 list-disc">
+            <li class="m-3"><a href="#assert">console.assert()</a></li>
+            <li class="m-3"><a href="#clear">console.clear()</a></li>
+            <li class="m-3"><a href="#count">console.count()</a></li>
+            <li class="m-3"><a href="#countReset">console.countReset()</a></li>
+            <li class="m-3"><a href="#debug">console.debug()</a></li>
+            <li class="m-3"><a href="#dir">console.dir()</a></li>
+            <li class="m-3"><a href="#dirxml">console.dirxml()</a></li>
+            <li class="m-3"><a href="#error">console.error()</a></li>
+            <li class="m-3"><a href="#exception">console.exception()</a></li>
+            <li class="m-3"><a href="#group">console.group()</a></li>
+            <li class="m-3"><a href="#groupCollapsed">console.groupCollapsed()</a></li>
+            <li class="m-3"><a href="#grouptEnd">console.grouptEnd()</a></li>
+            <li class="m-3"><a href="#info">console.info()</a></li>
+            <li class="m-3"><a href="#log">console.log()</a></li>
+            <li class="m-3"><a href="#profile">console.profile()</a></li>
+            <li class="m-3"><a href="#profileEnd">console.profileEnd()</a></li>
+            <li class="m-3"><a href="#table">console.table()</a></li>
+            <li class="m-3"><a href="#time">console.time()</a></li>
+            <li class="m-3"><a href="#timeEnd">console.timeEnd()</a></li>
+            <li class="m-3"><a href="#timeLog">console.timeLog()</a></li>
+            <li class="m-3"><a href="#timeStamp">console.timeStamp()</a></li>
+            <li class="m-3"><a href="#trace">console.trace()</a></li>
+            <li class="m-3"><a href="#warn">console.warn()</a></li>
+          </ol>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="assert">
+        <h1 class="text-4xl font-extrabold my-10 py-3 border-b">console.assert()</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) console.assert() 예제 - 표현식이 false인지 확인</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.assert(document.getElementById("wmakers"), "id='wmakers' 없음");<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="assertFunction1()">Click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) console.assert() 정의</h2>
+          <p>표현식이 'false' 일 때만 콘솔에 메시지 작성</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">3) console.assert() 구문</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">console.assert(expression, message)</p>
+          <p class="my-5"><strong>expression</strong> : 필수. 참거짓 판명할 표현식.</p>
+          <p class="my-5"><strong>expression</strong> : 필수. 표현식이 거짓인 경우 띄울 메세지. (**문자열, 객체나 배열 등 입력가능)</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">4) console.assert() 예제 - message 매개변수에 객체 입력</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;let wmakers = {site:"WMakers", domain:"wmakers.com"};<br/>
+            &emsp;console.assert(document.getElementById("wmakers"), wmakers);<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="assertFunction4()">Click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">5) console.assert() 예제 - message 매개변수에 배열 입력</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;let wmakers = ["WMakers", "wmakers.com"];<br/>
+            &emsp;console.assert(document.getElementById("wmakers"), wmakers);<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="assertFunction5()">Click</button>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="clear">
+        <h1 class="text-4xl font-extrabold my-10 py-3 border-b">console.clear()</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) console.clear() 예제 - 콘솔창 정리</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;button&gt;Console 지우기&lt;/button&gt;<br/><br/>
+            &lt;script&gt;<br/>
+            &emsp;function clearConsole(){<br/>
+            &emsp;&emsp;console.clear();<br/>
+            &emsp;}<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="logConsole()">콘솔 띄우기</button>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="clearConsole1()">콘솔 Clear</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) console.clear() 구문</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">console.clear()</p>
+          <p class="my-5"><strong>반환값</strong> : 콘솔 청소 후, 'Console was cleared' 메세지 띄움</p>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="count">
+        <h1 class="text-4xl font-extrabold my-10 py-3 border-b">console.count()</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) console.count() 예제 - 콘솔창에서 숫자 세기</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;for(i = 0; i < 10; i++){<br/>
+            &emsp;&emsp;console.count();<br/>
+            &emsp;}<br/>
+            &lt;/script&gt;<br/><br/>
+            결과값:<br/>
+            default: 1<br/>
+            default: 2<br/>
+            ...<br/>
+            default: 10<br/>
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countFunction1()">click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) console.count() 정의</h2>
+          <p>호출된 횟수를 콘솔에 표기</p>
+          <p>- 기본 label은 'default' 이며, 별도 지정 가능</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">3) console.count() 구문</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">console.count(label)</p>
+          <p class="my-5"><strong>label</strong> : 선택. 호출 이름 지정. (기본값: default)</p>
+          <p class="my-5">(** label 제거하려면, ""입력)</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">4) console.count() 예제 - 2번호출한 경우</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.count();<br/>
+            &emsp;console.count();<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countFunction4()">click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">5) console.count() 예제 - label 제거하기</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.count("");<br/>
+            &emsp;console.count("");<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countFunction5()">click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">6) console.count() 예제 - label 지정 후 2번 호출</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.count(wmakers);<br/>
+            &emsp;console.count(wmakers);<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countFunction6()">click</button>
+        </div>
+      </div>
+      <div class="mb-5 scroll" id="countReset">
+        <h1 class="text-4xl font-extrabold my-10 py-3 border-b">console.countReset()</h1>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">1) console.countReset() 예제 - 콘솔창에서 숫자 세기</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            <br/>
+            &emsp;// reset<br/>
+            &emsp;console.countReset('a')<br/>
+            <br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &emsp;console.count('a')<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countResetFunction1()">click</button>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">2) console.countReset() 정의</h2>
+          <p>Count로 호출된 횟수를 초기화</p>
+          <p>- label별로 초기화</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">3) console.countReset() 구문</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">console.countReset(label)</p>
+          <p class="my-5"><strong>label</strong> : 선택. 호출 이름 지정. (기본값: default)</p>
+          <p class="my-5">(** ""은 제거 불가)</p>
+        </div>
+        <div class="mb-10">
+          <h2 class="text-lg mb-2 font-bold">4) console.countReset() 예제</h2>
+          <p class="p-5 border-2 border-slate-200 mt-2">
+            &lt;script&gt;<br/>
+            &emsp;console.count('wmakers')<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('haksoop')<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('haksoop')<br/><br/>
+            &emsp;console.countReset('')<br/><br/>
+            &emsp;console.count('wmakers')<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('haksoop')<br/>
+            &emsp;console.count('wmakers')<br/>
+            &emsp;console.count('wmakers')<br/><br/>
+            &emsp;console.countReset('wmakers')<br/><br/>
+            &emsp;console.count()<br/>
+            &emsp;console.count()<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('wmakers')<br/>
+            &emsp;console.count('wmakers')<br/><br/>
+            &emsp;console.countReset('haksoop')<br/><br/>
+            &emsp;console.count('haksoop')<br/>
+            &emsp;console.count()<br/>
+            &emsp;console.count()<br/>
+            &emsp;console.count('')<br/>
+            &emsp;console.count('haksoop')<br/>
+            &emsp;console.count('wmakers')<br/>
+            &emsp;console.count('wmakers')<br/>
+            &lt;/script&gt;
+          </p>
+          <button class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 px-10" onclick="countResetFunction2()">click</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
