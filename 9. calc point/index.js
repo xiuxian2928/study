@@ -35,7 +35,11 @@ deductBtn.addEventListener("click", function(){
   if(resultPoint.value === '0') {
     return false
   } else {
-    resultPoint.value = Number(resultPoint.value) - Number(deductPoint.value)
+    if((Number(resultPoint.value) - Number(deductPoint.value)) < 0){
+      resultPoint.value = 0
+    }else{
+      resultPoint.value = Number(resultPoint.value) - Number(deductPoint.value)
+    }
   }
 })
 
@@ -43,6 +47,10 @@ function calcPayAmount(){
   let calcPayAmount5per = payAmount.value * 0.05;
   let calcRedeemablePoint = Math.floor(calcPayAmount5per * 0.0001) * 10000;
   payAmount5per.value = calcPayAmount5per;
-  redeemablePoint.value = calcRedeemablePoint;
-  finalPayment.value = payAmount.value - calcRedeemablePoint;
+  if(resultPoint.value < calcRedeemablePoint){
+    redeemablePoint.value = 0;
+  }else{
+    redeemablePoint.value = calcRedeemablePoint;
+  }
+  finalPayment.value = payAmount.value - redeemablePoint.value;
 }
